@@ -125,6 +125,7 @@ class Detect:
 
 
 if __name__ == "__main__":
-    dec = Detect('samples/plate8.jpg')
+    
+    Detect('samples/plate1.jpg')
     
 
