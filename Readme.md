@@ -8,6 +8,7 @@ A project to recognize Number Plate Detection using OpenCV and Tesseract OCR
 * Pytesseract OCR == 0.3.9
 * EasyOCR == 1.4.1
 * Numpy == 1.22.3
+* Matplotlib == 3.5.1
 
 ## Tesseract Installer For Windows:
 
