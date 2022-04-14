@@ -133,21 +133,7 @@ class Detect:
 
 if __name__ == "__main__":
     
-    images = [
-        'samples/plate1.jpg',
-        'samples/plate2.jpg',
-        'samples/plate3.png',
-        'samples/plate4.jpg',
-        'samples/plate5.jpg',
-        'samples/plate6.png',
-        'samples/plate7.jpg',
-        'samples/plate8.jpg',
-        'samples/plate9.jpg',
-        'samples/plate10.jpg',
-        'samples/plate11.jpg',
-        'samples/plate12.jpeg'
-    ]
-    Detect(images[0])
+    Detect('samples/image1.jpg')
 
     
     
