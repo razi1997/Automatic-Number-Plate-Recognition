@@ -8,21 +8,28 @@ from pytesseract import pytesseract
 
 class Detect:
 
-    # Detect Constructor
+    # ___Constructor____
     def __init__(self, image):
         self.mask_image = None
         self.tessertact_path = r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
         originalImage = self.read_image(image)
+        self.showImage('Original Image',originalImage,True)
         grayImage = self.applyGrayScale(originalImage)
+        self.showImage('Gray Image',grayImage,True)
         bFilter = self.applyBiFilter(grayImage)
+        self.showImage('BiLiteral Filtering',bFilter,True)
         edgeFilter = self.applyEdgeFilter(bFilter)
+        self.showImage('Edge Filtering',edgeFilter,True)
         contour = self.findContour(edgeFilter,0)
         location = self.findPolygons(contour)
+        print(f'Contour Points: {location}')
         maskedImage = self.maskImage(originalImage,grayImage,location)
+        self.pyPlot(maskedImage,True)
         numPlate = self.rectImage(originalImage,location)
         croppedImage = self.cropImage(originalImage)
         text = self.extract_character(None,croppedImage)
-        # self.showImage('Number Plate',numPlate,True)
+        self.showImage('Number Plate',numPlate,True)
+        print(text)
         res = self.drawRectangle(location, originalImage, text)
         self.showImage('Number Plate', res, True)
 
@@ -126,6 +133,22 @@ class Detect:
 
 if __name__ == "__main__":
     
-    Detect('samples/plate8.jpg')
+    images = [
+        'samples/plate1.jpg',
+        'samples/plate2.jpg',
+        'samples/plate3.png',
+        'samples/plate4.jpg',
+        'samples/plate5.jpg',
+        'samples/plate6.png',
+        'samples/plate7.jpg',
+        'samples/plate8.jpg',
+        'samples/plate9.jpg',
+        'samples/plate10.jpg',
+        'samples/plate11.jpg',
+        'samples/plate12.jpeg'
+    ]
+    Detect(images[0])
+
+    
     
 
