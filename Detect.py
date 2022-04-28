@@ -133,7 +133,7 @@ class Detect:
 
 if __name__ == "__main__":
     
-    Detect('samples/image1.jpg')
+    Detect('samples/plate1.jpg')
 
     
     
